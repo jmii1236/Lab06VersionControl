@@ -5,8 +5,16 @@ def encoder(passw):
         intpassw += 3
         newpass += str(intpassw)
         i += 1
-    return "Your password has been encoded and stored!"
-pass
+    print("Your password has been encoded and stored!")
+    return newpass
+
+def decoder(passw):
+    newpass = ''
+    for digit in passw:
+        digit = int(digit)
+        newpass = newpass + str(digit-3)
+    return newpass
+
 if __name__ == '__main__':
     while True:
         option = 1
@@ -17,11 +25,11 @@ if __name__ == '__main__':
                   "\n2. Decode"
                   "\n3. Quit")
             option = int(input("\nPlease enter an option: "))
-            password = str(input("Please enter your password to encode: "))
         if option == 1:
-            print(encoder(password))
+            password = str(input("Please enter your password to encode: "))
+            password = encoder(password)
         if option == 2:
-            pass
+            print(f'The encoded password is {password}, the original password is {decoder(password)}')
         if option == 3:
             break
 
